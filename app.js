@@ -7,6 +7,7 @@ var routes = require('./routes/pocetna');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var passport = require('passport');
 
 var app = express();
 
@@ -19,6 +20,15 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+
+//setup for passport
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+app.use(express.session({ secret: 'keyboard cat' }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
