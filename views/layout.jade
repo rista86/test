@@ -1,0 +1,19 @@
+doctype 5
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		header
+			h1= title
+			nav
+				ul
+					li 
+						a(href='/', title='pocetna') pocetna
+					li
+						a(href='/nova-partija', title='nova partija') nova partija
+					li
+						a(href='/moj-profil', title='moj profil') moj profil
+		block content
+		footer
+			p Proizvodnja 2013. Zoran Popovic, sva prava zdrzana.
